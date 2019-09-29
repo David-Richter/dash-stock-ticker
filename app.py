@@ -9,7 +9,6 @@ from datetime import datetime as dt
 import pandas as pd
 import os
 import plotly.graph_objs as go
-from app import server
 
 os.environ["TIINGO_API_KEY"] = "40231a5007eef7ce495a2a14fe16093e614e8226"
 
@@ -21,9 +20,7 @@ os.environ["TIINGO_API_KEY"] = "40231a5007eef7ce495a2a14fe16093e614e8226"
 #     ['dynvis', 'dynvis2019']
 # ]
 
-app = dash.Dash()
 #auth = dash_auth.BasicAuth(app, USERNAME_PASSWORD_PAIRS)
-server = app.server
 
 app = dash.Dash(
     __name__,
@@ -32,6 +29,8 @@ app = dash.Dash(
                 # ,
     # external_scripts=external_scripts
 )
+
+server = app.server
 
 nsdq = pd.read_csv('data/NASDAQcompanylist.csv')
 nsdq.set_index('Symbol', inplace=True)
