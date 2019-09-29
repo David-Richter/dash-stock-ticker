@@ -1,5 +1,5 @@
 import dash
-import dash_auth
+#import dash_auth
 import dash_core_components as dcc
 import dash_html_components as html
 import dash_flexbox_grid as dfx
@@ -21,8 +21,8 @@ USERNAME_PASSWORD_PAIRS = [
 ]
 
 app = dash.Dash()
-auth = dash_auth.BasicAuth(app, USERNAME_PASSWORD_PAIRS)
-server = app.server
+#auth = dash_auth.BasicAuth(app, USERNAME_PASSWORD_PAIRS)
+#server = app.server
 
 app = dash.Dash(
     __name__,
@@ -146,4 +146,4 @@ def update_graph(n_clicks, stock_value, start, end):
 
 
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    app.run_server()
