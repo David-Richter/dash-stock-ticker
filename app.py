@@ -9,6 +9,7 @@ from datetime import datetime as dt
 import pandas as pd
 import os
 import plotly.graph_objs as go
+from app import server
 
 os.environ["TIINGO_API_KEY"] = "40231a5007eef7ce495a2a14fe16093e614e8226"
 
