@@ -9,8 +9,12 @@ from datetime import datetime as dt
 import pandas as pd
 import os
 import plotly.graph_objs as go
+from flask_wtf.csrf import CSRFProtect
+
 
 os.environ["TIINGO_API_KEY"] = "40231a5007eef7ce495a2a14fe16093e614e8226"
+
+csrf_protect = CSRFProtect()
 
 USERNAME_PASSWORD_PAIRS = {
     'dynvis': 'jupyterDynvis'
@@ -22,6 +26,7 @@ app = dash.Dash(
                 "content": "width=device-width, initial-scale=1"}],
     csrf_protect=False
 )
+
 
 auth = dash_auth.BasicAuth(app, USERNAME_PASSWORD_PAIRS)
 
