@@ -32,8 +32,7 @@ app = dash.Dash(
     # external_scripts=external_scripts
 )
 
-nsdq = pd.read_csv(
-    '/Users/davidrichter/Code/Udemy/Dash/Plotly-Dashboards-with-Dash-master/Data/NASDAQcompanylist.csv')
+nsdq = pd.read_csv('data/NASDAQcompanylist.csv')
 nsdq.set_index('Symbol', inplace=True)
 stock = web.get_data_tiingo('GOOG', api_key=os.getenv('TIINGO_API_KEY'))
 
