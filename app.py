@@ -17,7 +17,7 @@ external_scripts = [
 ]
 
 USERNAME_PASSWORD_PAIRS = [
-    ['dynvis', 'Dynamicvisuals2013']
+    ['dynvis', 'dynvis2019']
 ]
 
 app = dash.Dash()
