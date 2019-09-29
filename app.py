@@ -1,5 +1,5 @@
 import dash
-#import dash_auth
+import dash_auth
 import dash_core_components as dcc
 import dash_html_components as html
 import dash_flexbox_grid as dfx
@@ -12,22 +12,21 @@ import plotly.graph_objs as go
 
 os.environ["TIINGO_API_KEY"] = "40231a5007eef7ce495a2a14fe16093e614e8226"
 
-# external_scripts = [
-#     'https://fonts.googleapis.com/css?family=Roboto&display=swap'
-# ]
+ external_scripts = [
+     'https://fonts.googleapis.com/css?family=Roboto&display=swap'
+ ]
 
-# USERNAME_PASSWORD_PAIRS = [
-#     ['dynvis', 'dynvis2019']
-# ]
+ USERNAME_PASSWORD_PAIRS = [
+     ['dynvis', 'dynvis2019']
+ ]
 
-#auth = dash_auth.BasicAuth(app, USERNAME_PASSWORD_PAIRS)
+auth = dash_auth.BasicAuth(app, USERNAME_PASSWORD_PAIRS)
 
 app = dash.Dash(
     __name__,
     meta_tags=[{"name": "viewport",
-                "content": "width=device-width, initial-scale=1"}]
-                # ,
-    # external_scripts=external_scripts
+                "content": "width=device-width, initial-scale=1"}],
+    external_scripts=external_scripts
 )
 
 server = app.server

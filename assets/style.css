@@ -1,5 +1,5 @@
 .row {
-	flex: 1 0 100%;
+	flex: 1 0 100% !important;
 }
 
 .layout {
