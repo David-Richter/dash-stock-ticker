@@ -13,7 +13,7 @@ import plotly.graph_objs as go
 os.environ["TIINGO_API_KEY"] = "40231a5007eef7ce495a2a14fe16093e614e8226"
 
 USERNAME_PASSWORD_PAIRS = {
-    'dynvis': 'dynvis2019'
+    'dynvis': 'jupyterDynvis'
 }
 
 app = dash.Dash(
