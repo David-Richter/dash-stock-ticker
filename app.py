@@ -107,7 +107,7 @@ app.layout = dfx.Grid(
                     children=[
                         dash_table.DataTable(
                             id='table',
-                            columns=[{"name": i, "id": i} for i in table_data.columns],
+                            columns=[{"name": i, "id": i, "deletable": True, "selectable": True} for i in table_data.columns],
                             data = table_data.to_dict("records"),
                             fixed_rows={ 'headers': True, 'data': 0 },
                             style_table={
@@ -120,7 +120,19 @@ app.layout = dfx.Grid(
                                 'minWidth': '100px', 'width': '100px', 'maxWidth': '100px',
                                 'overflow': 'hidden',
                                 'textOverflow': 'ellipsis',
-                            }
+                            },
+                            editable=True,
+                            filter_action="native",
+                            sort_action="native",
+                            sort_mode="multi",
+                            column_selectable="single",
+                            row_selectable="multi",
+                            row_deletable=True,
+                            selected_columns=[],
+                            selected_rows=[],
+                            page_action="native",
+                            page_current= 0,
+                            page_size= 10
                         )
                     ]
                 ),
@@ -173,6 +185,18 @@ app.layout = dfx.Grid(
 
 
 @app.callback(
+    Output('table', 'style_data_conditional'),
+    [Input('table', 'selected_columns')]
+)
+def update_styles(selected_columns):
+    return [{
+        'if': { 'column_id': i },
+        'background_color': '#D2F3FF'
+    } for i in selected_columns]
+
+
+
+@app.callback(
     Output('stock_data_table', 'children'),
     [Input('submit_button', 'n_clicks')],
     [State('stock_filter', 'value'),
@@ -205,8 +229,8 @@ def update_table(n_clicks, stock_value, start, end):
                 lg=table_size,
                 children=[
                     dash_table.DataTable(
-                        id='table-'+i,
-                        columns=[{"name": i, "id": i} for i in table_data.columns],
+                        id='table',
+                        columns=[{"name": i, "id": i, "deletable": True, "selectable": True} for i in table_data.columns],
                         data = table_data.to_dict("records"),
                         fixed_rows={ 'headers': True, 'data': 0 },
                         style_table={
@@ -219,7 +243,19 @@ def update_table(n_clicks, stock_value, start, end):
                             'minWidth': '100px', 'width': '100px', 'maxWidth': '100px',
                             'overflow': 'hidden',
                             'textOverflow': 'ellipsis',
-                        }
+                        },
+                            editable=True,
+                            filter_action="native",
+                            sort_action="native",
+                            sort_mode="multi",
+                            column_selectable="single",
+                            row_selectable="multi",
+                            row_deletable=True,
+                            selected_columns=[],
+                            selected_rows=[],
+                            page_action="native",
+                            page_current= 0,
+                            page_size= 10
                     )
                 ]
             )
