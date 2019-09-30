@@ -6,6 +6,10 @@
        url('/Roboto/Roboto-Regular.ttf') format('truetype'),
 }
 
+body {
+	font-family: Arial, Helvetica, sans-serif
+}
+
 .dataTable {
 	max-width: 100%;
 	display: flex;
