@@ -3,11 +3,14 @@
   font-style: normal;
   font-weight: 400;
   src: local('Open Sans Regular'), local('OpenSans-Regular'),
-       url('/Roboto/Roboto-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/Roboto/Roboto-Regular.ttf') format('truetype'),
 }
 
-.row {
-	flex: 1 0 100% !important;
+.dataTable {
+	max-width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .layout {
