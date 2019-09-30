@@ -38,10 +38,8 @@ layout = dict(
     automargin=True,
     margin=dict(l=30, r=30, b=20, t=40),
     hovermode="closest",
-    plot_bgcolor="#33333",
-    paper_bgcolor="#33333",
     legend=dict(font=dict(size=10), orientation="h"),
-    title="Stock ticker",
+    title="Stock Ticker",
     className='layout',
     fluid=True,
 )
@@ -150,7 +148,8 @@ app.layout = dfx.Grid(
                                     'y': stock.loc["GOOG"]["close"]}
                                 ],
                                 'layout': {
-                                    'title': 'Stock Name'                            
+                                    'title': 'Stock Name',
+                                                            'plot_bgcolor': 'rgba(255,255,255,1)'
                                 }
                             }
                         )
@@ -173,7 +172,10 @@ app.layout = dfx.Grid(
                                         low=stock.loc["GOOG"]["low"],
                                         close=stock.loc["GOOG"]["close"]
                                     )
-                                ]
+                                ],
+                                layout= go.Layout(
+                                    plot_bgcolor='rgba(255,255,255,1)'
+                                )
                             )
                         )
                     ]
@@ -288,6 +290,7 @@ def update_graph(n_clicks, stock_value, start, end):
         'data': traces,
         'layout': {
             'title': ', '.join(stock_value)+' Closing Prices',
+            'plot_bgcolor': 'rgba(255,255,255,1)'
         }
     }
     return figure
@@ -322,7 +325,16 @@ def update_candle_graph(n_clicks, stock_value, start, end):
         )
 
     figure=go.Figure(
-        data=data
+        data=data,
+        layout = go.Layout(
+            plot_bgcolor='rgba(255,255,255,1)',
+            xaxis=dict(
+                gridcolor= "#eee"
+            ),
+            yaxis=dict(
+                gridcolor= "#eee"
+            )
+        )
     )
 
     return figure
