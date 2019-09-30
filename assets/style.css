@@ -70,3 +70,7 @@
     border: 2px solid #333333;
     color: #FFFFFF;
 } 
+
+.Select-menu-outer, .DateRangePicker_picker {
+	z-index: 301 !important;
+}
