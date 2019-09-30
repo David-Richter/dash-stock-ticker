@@ -13,9 +13,9 @@ import dash_table
 
 os.environ["TIINGO_API_KEY"] = "40231a5007eef7ce495a2a14fe16093e614e8226"
 
-USERNAME_PASSWORD_PAIRS = {
-    'dynvis': 'jupyterDynvis'
-}
+# USERNAME_PASSWORD_PAIRS = {
+#     'dynvis': 'jupyterDynvis'
+# }
 
 app = dash.Dash(
     __name__,
@@ -23,7 +23,7 @@ app = dash.Dash(
                 "content": "width=device-width, initial-scale=1"}],
 )
 
-auth = dash_auth.BasicAuth(app, USERNAME_PASSWORD_PAIRS)
+#auth = dash_auth.BasicAuth(app, USERNAME_PASSWORD_PAIRS)
 
 server = app.server
 
